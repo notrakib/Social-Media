@@ -1,0 +1,30 @@
+.posts {
+  display: flex;
+  flex-direction: column;
+}
+
+.posts h1 {
+  margin: 0px;
+}
+
+#postDate {
+  align-self: flex-end;
+  margin: 0px;
+  padding: 0px;
+}
+
+.posts section {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-around;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.posts button {
+  border-radius: 20px;
+  border-color: rgb(122, 5, 255);
+  width: 140px;
+  height: 25px;
+  background-color: rgb(136, 226, 163);
+}

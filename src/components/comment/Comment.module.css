@@ -1,0 +1,36 @@
+.cmnt {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 2%;
+  margin-bottom: 0%;
+}
+
+.cmnt input {
+  width: 80%;
+  height: 22px;
+  margin-right: 16px;
+  border: 2px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: blueviolet;
+  margin-bottom: 0%;
+}
+
+.cmnt button {
+  height: 27px;
+  width: 10%;
+  align-self: center;
+  margin-right: 16px;
+  border: 2px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: blueviolet;
+  background-color: rgb(174, 200, 223);
+  color: rgb(69, 6, 245);
+  font-size: 13pt;
+  font-weight: bold;
+  margin-bottom: 0%;
+}

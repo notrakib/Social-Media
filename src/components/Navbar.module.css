@@ -1,0 +1,31 @@
+.nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 5.5rem;
+  background-color: rgb(97, 6, 158);
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  position: sticky;
+  top: 0;
+}
+
+.nav li {
+  list-style: none;
+  margin-right: 50px;
+}
+
+.nav a {
+  text-decoration: none;
+  font-size: 26pt;
+  font-weight: bold;
+  color: rgb(228, 253, 1);
+}
+
+.nav div {
+  display: flex;
+  margin-left: 50px;
+  justify-content: flex-end;
+  flex-grow: 1;
+}

@@ -1,0 +1,13 @@
+.card {
+  max-width: 1920px;
+  width: 50%;
+  align-self: center;
+  background-color: rgba(86, 185, 192, 0.329);
+  border: 2px;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: rgb(98, 9, 182);
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 10px;
+}
