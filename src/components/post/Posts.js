@@ -11,12 +11,12 @@ const Posts = (props) => {
       <h1>{props.item.name}</h1>
       <DaysAgo postdate={props.item.date}></DaysAgo>
       <p>{props.item.post}</p>
-      <div id={classes.postDate}>
+      <h4 className={classes.postDate}>
         <PostDate postdate={props.item.date}></PostDate>
-      </div>
+      </h4>
       <section>
         <button onClick={clickHnadler}>{props.item.upvote} Upvotes</button>
-        <button>{props.item.comments} Comments</button>
+        <button>{props.item.comments.length} Comments</button>
         <button>{props.item.shares} Shares</button>
       </section>
       <Comment></Comment>

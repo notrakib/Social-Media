@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Card from "./Card";
 import classes from "./Signup.module.css";
 
@@ -7,7 +8,9 @@ const Signup = () => {
   return (
     <Card>
       <form className={classes.signup}>
-        <h1>Sign up</h1>
+        <h1>
+          Create an Account \ <Link to="/Signin">Sign in</Link>
+        </h1>
         <div>
           <h3>Name</h3>
           <input id={classes.name} type="text"></input>

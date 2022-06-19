@@ -1,0 +1,43 @@
+.cmntbox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: rgba(196, 177, 207, 0.562);
+  border-radius: 20px;
+  margin: 15px;
+  padding: 0px 20px;
+}
+
+.cmntbox div {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(136, 226, 163);
+  width: 90%;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  padding: 15px;
+}
+
+.cmntbox h3 {
+  margin: 0px;
+}
+
+.cmntbox p {
+  margin: 10px;
+}
+
+.cmntbox p {
+  margin-left: 20px;
+  font-style: oblique;
+  font-size: 15pt;
+  background-color: rgb(152, 91, 187);
+  color: rgb(253, 253, 253);
+  border-radius: 20px;
+  padding-left: 15px;
+  padding-bottom: 5px;
+}
+
+.cmntbox section {
+  align-self: flex-end;
+  margin-top: 0px;
+}

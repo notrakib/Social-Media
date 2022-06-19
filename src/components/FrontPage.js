@@ -6,7 +6,7 @@ const FrontPage = () => {
     <Card>
       <div className={classes.div}>
         <h2>Write New Post</h2>
-        <textarea></textarea>
+        <textarea placeholder="Ki Vai Mone Ki Chole"></textarea>
         <button>POST</button>
       </div>
     </Card>

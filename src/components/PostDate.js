@@ -6,9 +6,9 @@ const PostDate = (props) => {
   const year = props.postdate.getFullYear();
 
   return (
-    <h4 className={classes.date}>
+    <section className={classes.date}>
       Posted on {day}-{month}-{year}
-    </h4>
+    </section>
   );
 };
 

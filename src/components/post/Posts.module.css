@@ -7,7 +7,11 @@
   margin: 0px;
 }
 
-#postDate {
+.posts p {
+  margin-bottom: 0px;
+}
+
+.posts h4 {
   align-self: flex-end;
   margin: 0px;
   padding: 0px;

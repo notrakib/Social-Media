@@ -53,3 +53,9 @@
   font-size: larger;
   font-weight: bold;
 }
+
+.signup a {
+  color: rgb(66, 4, 236);
+  text-decoration: none;
+  font-size: 20pt;
+}
