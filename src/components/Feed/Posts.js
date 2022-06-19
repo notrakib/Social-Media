@@ -1,6 +1,6 @@
 import classes from "./Posts.module.css";
-import PostDate from "../PostDate";
-import DaysAgo from "../DaysAgo";
+import PostDate from "../Date/PostDate";
+import DaysAgo from "../Date/DaysAgo";
 import Comment from "../comment/Comment";
 
 const Posts = (props) => {

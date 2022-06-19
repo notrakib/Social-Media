@@ -1,4 +1,4 @@
-import Card from "./Card";
+import Card from "../Layout/Card";
 import classes from "./FrontPage.module.css";
 
 const FrontPage = () => {

@@ -1,7 +1,7 @@
 import classes from "./RecentPost.module.css";
 import React, { Fragment, useState } from "react";
 
-import Card from "../Card";
+import Card from "../Layout/Card";
 import Posts from "./Posts";
 import AllComments from "../comment/AllComments";
 

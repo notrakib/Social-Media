@@ -1,8 +1,8 @@
 import { Fragment } from "react";
-import Posts from "../post/Posts";
+import Posts from "../Feed/Posts";
 import classes from "./AllComments.module.css";
-import recent from "../post/RecentPost.module.css";
-import PostDate from "../PostDate";
+import recent from "../Feed/RecentPost.module.css";
+import PostDate from "../Date/PostDate";
 
 const AllComments = (props) => {
   return (

@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import Card from "./Card";
+import Card from "../Layout/Card";
 import classes from "./Profile.module.css";
 
 const Profile = () => {

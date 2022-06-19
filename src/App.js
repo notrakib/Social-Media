@@ -1,13 +1,13 @@
 import { Fragment } from "react";
 import { Route, Routes } from "react-router-dom";
 import classes from "./App.module.css";
-import FrontPage from "./components/FrontPage";
-import Navbar from "./components/Navbar";
-import RecentPost from "./components/post/RecentPost";
-import Profile from "./components/Profile";
-import SignIn from "./components/SignIn";
-import Signup from "./components/Signup";
-import Welcome from "./components/Welcome";
+import FrontPage from "./components/Feed/FrontPage";
+import Navbar from "./components/Layout/Navbar";
+import RecentPost from "./components/Feed/RecentPost";
+import Profile from "./components/Account/Profile";
+import SignIn from "./components/Account/SignIn";
+import Signup from "./components/Account/Signup";
+import Welcome from "./components/Layout/Welcome";
 
 function App() {
   return (
