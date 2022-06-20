@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialProfileSlice = [];
+const initialProfileSlice = [{ userId: "", name: "", email: "", date: "" }];
 
 const profileSlice = createSlice({
   name: "profile",
   initialState: initialProfileSlice,
   reducers: {
     createProfile(state, action) {
-      state.push(action);
+      state.push(action.payload);
     },
   },
 });
