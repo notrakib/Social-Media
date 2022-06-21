@@ -23,7 +23,6 @@ const FrontPage = () => {
     };
 
     dispatch(postAction.createPost(newPost));
-    console.log(newPost);
   };
 
   return (

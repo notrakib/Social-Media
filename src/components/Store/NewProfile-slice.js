@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialProfileSlice = [{ userId: "", name: "", email: "", date: "" }];
+const initialProfileSlice = [];
 
 const profileSlice = createSlice({
   name: "profile",

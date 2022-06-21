@@ -1,9 +1,9 @@
 import classes from "./PostDate.module.css";
 
 const PostDate = (props) => {
-  const day = props.postdate.getDate();
-  const month = props.postdate.getMonth();
-  const year = props.postdate.getFullYear();
+  const day = new Date(props.postdate).getDate();
+  const month = new Date(props.postdate).getMonth();
+  const year = new Date(props.postdate).getFullYear();
 
   return (
     <section className={classes.date}>

@@ -1,14 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialComment = [
-  { name: "", userId: "", postId: "", comment: "", date: "" },
-];
+const initialComment = [];
 
 const commentSlice = createSlice({
   name: "comment",
   initialState: initialComment,
   reducers: {
-    createPost(state, action) {
+    createComment(state, action) {
       state.push(action.payload);
     },
   },

@@ -8,7 +8,9 @@
 }
 
 .posts p {
+  margin: 15px;
   margin-bottom: 0px;
+  text-align: justify;
 }
 
 .posts h4 {

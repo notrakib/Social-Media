@@ -2,7 +2,8 @@ import classes from "./DaysAgo.module.css";
 
 const DaysAgo = (props) => {
   const today = new Date().getTime();
-  const thatday = props.postdate.getTime();
+
+  const thatday = new Date(props.postdate).getTime();
 
   const diffdays = ((today - thatday) / (1000 * 60 * 60 * 24)).toFixed(0);
 

@@ -9,6 +9,7 @@ import SignIn from "./components/Account/SignIn";
 import Signup from "./components/Account/Signup";
 import Welcome from "./components/Layout/Welcome";
 import { useSelector } from "react-redux";
+import Post_Comments from "./components/comment/Post_Comments";
 
 function App() {
   const signin = useSelector((state) => state.signin.signin);
@@ -29,6 +30,7 @@ function App() {
               path="/FrontPage"
             />
             <Route element={<Profile />} path="/Profile" />
+            <Route element={<Post_Comments />} path="/:postId" />
           </Fragment>
         )}
         {!signin && (
