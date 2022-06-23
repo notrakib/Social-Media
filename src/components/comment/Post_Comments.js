@@ -7,8 +7,8 @@ import classes from "../Feed/RecentPost.module.css";
 import { useParams } from "react-router-dom";
 
 const Post_Comments = () => {
-  const comment = useSelector((state) => state.comment);
-  const post = useSelector((state) => state.post);
+  const comment = useSelector((state) => state.comment.commentArray);
+  const post = useSelector((state) => state.post.newPostArray);
   const params = useParams();
 
   console.log(params.postId);

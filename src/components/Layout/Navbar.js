@@ -1,17 +1,19 @@
 import { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { signinAction } from "../Store/Signin-slice";
 import classes from "./Navbar.module.css";
 
 const Navbar = () => {
   const signin = useSelector((state) => state.signin);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const signoutHandler = (event) => {
     event.preventDefault();
 
     dispatch(signinAction.logout());
+    navigate("*");
   };
 
   return (

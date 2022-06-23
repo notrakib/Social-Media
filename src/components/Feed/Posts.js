@@ -9,11 +9,13 @@ import { shareAction } from "../Store/Share-slice";
 
 const Posts = (props) => {
   const navigate = useNavigate();
-  const numberofComments = useSelector((state) => state.comment);
-  const upvote = useSelector((state) => state.upvote);
-  const share = useSelector((state) => state.share);
+  const numberofComments = useSelector((state) => state.comment.commentArray);
+  const upvote = useSelector((state) => state.upvote.upvoteArray);
+  const share = useSelector((state) => state.share.shareArray);
   const signedprofile = useSelector((state) => state.signin);
   const dispatch = useDispatch();
+
+  if (props.item === undefined) return;
 
   const numberofUpvotes = upvote.filter(
     (post) => post.postId === props.item.postId
@@ -46,7 +48,6 @@ const Posts = (props) => {
       name: signedprofile.name,
     };
     dispatch(shareAction.createShare(newShare));
-
   };
 
   const shareby = "";

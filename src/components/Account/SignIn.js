@@ -10,7 +10,7 @@ const SignIn = () => {
   const passRef = useRef();
 
   const dispatch = useDispatch();
-  const allProfile = useSelector((state) => state.profile);
+  const allProfile = useSelector((state) => state.profile.profileArray);
 
   const navigate = useNavigate();
 
@@ -21,45 +21,44 @@ const SignIn = () => {
       (item) => item.email === emailRef.current.value
     );
 
-    if (signedProfile === undefined) return;
+    try {
+      const response = await fetch(
+        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAMGuiH_2rYlDTddzTf2sD-twnmsMP_H4U",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            email: emailRef.current.value,
+            password: passRef.current.value,
+            returnSecureToken: true,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.ok) {
+        const data = await response.json();
+        const profile = {
+          signin: true,
+          userId: signedProfile.userId,
+          idToken: data.idToken,
+          expiresIn: data.expiresIn,
+          emailId: emailRef.current.value,
+          name: signedProfile.name,
+        };
 
-    const profile = {
-      userId: signedProfile.userId,
-      idToken: "loggedIn",
-      expiresIn: 1800,
-      emailId: emailRef.current.value,
-      name: signedProfile.name,
-    };
+        if (signedProfile === undefined) return;
+        dispatch(signinAction.login(profile));
 
-    dispatch(signinAction.login(profile));
-    navigate("/FrontPage");
-
-    // try {
-    //   const response = await fetch(
-    //     "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAMGuiH_2rYlDTddzTf2sD-twnmsMP_H4U",
-    //     {
-    //       method: "POST",
-    //       body: JSON.stringify({
-    //         email: emailRef.current.value,
-    //         password: passRef.current.value,
-    //         returnSecureToken: true,
-    //       }),
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //     }
-    //   );
-    //   if (response.ok) {
-    //     const data = await response.json();
-    //     console.log(data.idToken, data.expiresIn);
-    //     navigate("/FrontPage");
-    //   } else {
-    //     const data = await response.json();
-    //     throw new Error(data.error.message);
-    //   }
-    // } catch (error) {
-    //   console.log(error.message);
-    // }
+        console.log(profile);
+        navigate("/NewsFeed");
+      } else {
+        const data = await response.json();
+        throw new Error(data.error.message);
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (

@@ -1,16 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialProfileSlice = [];
+const initialProfileSlice = { profileArray: [] };
 
 const profileSlice = createSlice({
   name: "profile",
   initialState: initialProfileSlice,
   reducers: {
     createProfile(state, action) {
-      state.push(action.payload);
+      state.profileArray.push(action.payload);
     },
     replaceApiData(state, action) {
-      state = action.payload.data;
+      state.profileArray = action.payload;
     },
   },
 });
@@ -22,18 +22,7 @@ export const FetchData = () => {
         "https://sm-profile-default-rtdb.firebaseio.com/profile.json"
       );
       const data = await response.json();
-      dispatch(profileAction.replaceApiData(data));
-
-      try {
-        if (response.ok) {
-          return;
-        } else {
-          const data = await response.json();
-          throw new Error(data.error.message);
-        }
-      } catch (error) {
-        console.log(error.message);
-      }
+      dispatch(profileAction.replaceApiData(data || []));
     };
 
     fetchApiData();
@@ -53,16 +42,6 @@ export const SendData = (newData) => {
           },
         }
       );
-
-      try {
-        if (response.ok) return;
-        else {
-          const data = await response.json();
-          throw new Error(data.error.message);
-        }
-      } catch (error) {
-        console.log(error.message);
-      }
     };
 
     sendApiData();
