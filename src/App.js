@@ -8,27 +8,13 @@ import Profile from "./components/Account/Profile";
 import SignIn from "./components/Account/SignIn";
 import Signup from "./components/Account/Signup";
 import Welcome from "./components/Layout/Welcome";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Post_Comments from "./components/comment/Post_Comments";
-import { FetchData, SendData } from "./components/Store/NewProfile-slice";
-
-let x = true;
+import SendFetchHook from "./components/Hook/SendFetchHook";
 
 function App() {
+  SendFetchHook();
   const signin = useSelector((state) => state.signin);
-  const profile = useSelector((state) => state.profile.profileArray);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (x) {
-      dispatch(FetchData());
-      x = false;
-      return;
-    }
-
-    dispatch(SendData(profile));
-  }, [profile]);
 
   return (
     <div className={classes.div}>

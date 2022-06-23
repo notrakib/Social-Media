@@ -26,10 +26,12 @@ const shareSlice = createSlice({
   },
 });
 
-export const FetchData = () => {
+export const FetchDataShares = () => {
   return (dispatch) => {
     const fetchApiData = async () => {
-      const response = await fetch("url");
+      const response = await fetch(
+        "https://sm-share-349cf-default-rtdb.firebaseio.com/share.json"
+      );
       const data = await response.json();
       dispatch(shareAction.replaceApiData(data || []));
     };
@@ -38,16 +40,19 @@ export const FetchData = () => {
   };
 };
 
-export const SendData = (newData) => {
+export const SendDataShares = (newData) => {
   return () => {
     const sendApiData = async () => {
-      const response = await fetch("url", {
-        method: "PUT",
-        body: JSON.stringify(newData),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        "https://sm-share-349cf-default-rtdb.firebaseio.com/share.json",
+        {
+          method: "PUT",
+          body: JSON.stringify(newData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
     };
 
     sendApiData();

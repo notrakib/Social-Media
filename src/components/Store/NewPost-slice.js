@@ -17,10 +17,12 @@ const postSlice = createSlice({
   },
 });
 
-export const FetchData = () => {
+export const FetchDataPosts = () => {
   return (dispatch) => {
     const fetchApiData = async () => {
-      const response = await fetch("url");
+      const response = await fetch(
+        "https://sm-post-d50c7-default-rtdb.firebaseio.com/post.json"
+      );
       const data = await response.json();
       dispatch(postAction.replaceApiData(data || []));
     };
@@ -29,16 +31,19 @@ export const FetchData = () => {
   };
 };
 
-export const SendData = (newData) => {
+export const SendDataPosts = (newData) => {
   return () => {
     const sendApiData = async () => {
-      const response = await fetch("url", {
-        method: "PUT",
-        body: JSON.stringify(newData),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        "https://sm-post-d50c7-default-rtdb.firebaseio.com/post.json",
+        {
+          method: "PUT",
+          body: JSON.stringify(newData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
     };
 
     sendApiData();

@@ -50,7 +50,6 @@ const SignIn = () => {
         if (signedProfile === undefined) return;
         dispatch(signinAction.login(profile));
 
-        console.log(profile);
         navigate("/NewsFeed");
       } else {
         const data = await response.json();

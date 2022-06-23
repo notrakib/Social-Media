@@ -15,10 +15,12 @@ const commentSlice = createSlice({
   },
 });
 
-export const FetchData = () => {
+export const FetchDataComments = () => {
   return (dispatch) => {
     const fetchApiData = async () => {
-      const response = await fetch("url");
+      const response = await fetch(
+        "https://sm-comment-default-rtdb.firebaseio.com/comment.json"
+      );
       const data = await response.json();
       dispatch(commentAction.replaceApiData(data || []));
     };
@@ -27,16 +29,19 @@ export const FetchData = () => {
   };
 };
 
-export const SendData = (newData) => {
+export const SendDataComments = (newData) => {
   return () => {
     const sendApiData = async () => {
-      const response = await fetch("url", {
-        method: "PUT",
-        body: JSON.stringify(newData),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        "https://sm-comment-default-rtdb.firebaseio.com/comment.json",
+        {
+          method: "PUT",
+          body: JSON.stringify(newData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
     };
 
     sendApiData();

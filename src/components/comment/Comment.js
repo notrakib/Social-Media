@@ -22,7 +22,6 @@ const Comment = (props) => {
       date: date,
     };
     dispatch(commentAction.createComment(comment));
-    console.log(comment);
   };
   return (
     <form className={classes.cmnt}>

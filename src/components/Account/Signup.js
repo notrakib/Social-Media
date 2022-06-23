@@ -37,7 +37,7 @@ const Signup = () => {
       );
       if (response.ok) {
         const data = await response.json();
-        console.log(data.idToken, data.expiresIn);
+
         const profile = {
           userId: Math.random().toString(),
           name: nameRef.current.value,

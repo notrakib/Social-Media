@@ -15,7 +15,7 @@ const profileSlice = createSlice({
   },
 });
 
-export const FetchData = () => {
+export const FetchDataProfiles = () => {
   return (dispatch) => {
     const fetchApiData = async () => {
       const response = await fetch(
@@ -29,7 +29,7 @@ export const FetchData = () => {
   };
 };
 
-export const SendData = (newData) => {
+export const SendDataProfiles = (newData) => {
   return () => {
     const sendApiData = async () => {
       const response = await fetch(

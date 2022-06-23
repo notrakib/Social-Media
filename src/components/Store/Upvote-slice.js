@@ -26,10 +26,12 @@ const upvoteSlice = createSlice({
   },
 });
 
-export const FetchData = () => {
+export const FetchDataUpvotes = () => {
   return (dispatch) => {
     const fetchApiData = async () => {
-      const response = await fetch("url");
+      const response = await fetch(
+        "https://sm-upvote-default-rtdb.firebaseio.com/upvote.json"
+      );
       const data = await response.json();
       dispatch(upvoteAction.replaceApiData(data || []));
     };
@@ -38,16 +40,19 @@ export const FetchData = () => {
   };
 };
 
-export const SendData = (newData) => {
+export const SendDataUpvotes = (newData) => {
   return () => {
     const sendApiData = async () => {
-      const response = await fetch("url", {
-        method: "PUT",
-        body: JSON.stringify(newData),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        "https://sm-upvote-default-rtdb.firebaseio.com/upvote.json",
+        {
+          method: "PUT",
+          body: JSON.stringify(newData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
     };
 
     sendApiData();

@@ -11,11 +11,8 @@ const Post_Comments = () => {
   const post = useSelector((state) => state.post.newPostArray);
   const params = useParams();
 
-  console.log(params.postId);
-
   const targetedPost = post.find((post) => post.postId === params.postId);
   const allComments = comment.filter((cmnt) => cmnt.postId === params.postId);
-  console.log(allComments);
 
   return (
     <Fragment>
