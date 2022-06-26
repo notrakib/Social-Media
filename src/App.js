@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import classes from "./App.module.css";
 import FrontPage from "./components/Feed/FrontPage";

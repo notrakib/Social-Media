@@ -10,6 +10,7 @@ const Comment = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    if (commentRef.current.value === "") return;
 
     const date = String(new Date());
 
@@ -22,6 +23,7 @@ const Comment = (props) => {
       date: date,
     };
     dispatch(commentAction.createComment(comment));
+    commentRef.current.value = "";
   };
   return (
     <form className={classes.cmnt}>

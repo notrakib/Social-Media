@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 
 const RecentPost = () => {
   const allPosts = useSelector((state) => state.post.newPostArray);
+
   return (
     <Card>
       <div className={classes.recentposts}>

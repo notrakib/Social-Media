@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { Fragment, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postAction } from "../Store/NewPost-slice";
 import Card from "../Layout/Card";
@@ -9,8 +9,8 @@ const FrontPage = () => {
   const dispatch = useDispatch();
   const signedprofile = useSelector((state) => state.signin);
 
-  const submitHandler = (event) => {
-    event.preventDefault();
+  const submitHandler = () => {
+    if (postRef.current.value === "") return;
 
     const date = String(new Date());
 
@@ -23,16 +23,18 @@ const FrontPage = () => {
     };
 
     dispatch(postAction.createPost(newPost));
+    postRef.current.value = "";
   };
 
   return (
-    <Card>
-      <div className={classes.div}>
-        <h2>Write New Post</h2>
-        <textarea ref={postRef} placeholder="Ki Vai Mone Ki Chole"></textarea>
-        <button onClick={submitHandler}>POST</button>
-      </div>
-    </Card>
+    <Fragment>
+      <Card>
+        <div className={classes.div}>
+          <textarea ref={postRef}></textarea>
+          <button onClick={submitHandler}>POST</button>
+        </div>
+      </Card>
+    </Fragment>
   );
 };
 
