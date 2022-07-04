@@ -32,7 +32,7 @@ export const FetchDataComments = () => {
 export const SendDataComments = (newData) => {
   return () => {
     const sendApiData = async () => {
-      const response = await fetch(
+      await fetch(
         "https://sm-comment-default-rtdb.firebaseio.com/comment.json",
         {
           method: "PUT",

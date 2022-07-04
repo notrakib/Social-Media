@@ -32,7 +32,7 @@ export const FetchDataProfiles = () => {
 export const SendDataProfiles = (newData) => {
   return () => {
     const sendApiData = async () => {
-      const response = await fetch(
+      await fetch(
         "https://sm-profile-default-rtdb.firebaseio.com/profile.json",
         {
           method: "PUT",

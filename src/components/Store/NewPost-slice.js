@@ -34,7 +34,7 @@ export const FetchDataPosts = () => {
 export const SendDataPosts = (newData) => {
   return () => {
     const sendApiData = async () => {
-      const response = await fetch(
+      await fetch(
         "https://sm-post-d50c7-default-rtdb.firebaseio.com/post.json",
         {
           method: "PUT",

@@ -50,7 +50,7 @@ const Posts = (props) => {
     dispatch(shareAction.createShare(newShare));
   };
 
-  const shareby = "";
+  let shareby = "";
 
   if (props.item.sharedBy) {
     shareby = <p>shared by {props.item.sharedBy}</p>;

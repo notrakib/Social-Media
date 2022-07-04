@@ -29,7 +29,7 @@ const SendFetchHook = () => {
     }
 
     dispatch(SendDataProfiles(profile));
-  }, [profile]);
+  }, [profile, dispatch]);
 
   useEffect(() => {
     if (forPost) {
@@ -39,7 +39,7 @@ const SendFetchHook = () => {
     }
 
     dispatch(SendDataPosts(post));
-  }, [post]);
+  }, [post, dispatch]);
 
   useEffect(() => {
     if (forComment) {
@@ -49,7 +49,7 @@ const SendFetchHook = () => {
     }
 
     dispatch(SendDataComments(comment));
-  }, [comment]);
+  }, [comment, dispatch]);
 
   useEffect(() => {
     if (forShare) {
@@ -59,7 +59,7 @@ const SendFetchHook = () => {
     }
 
     dispatch(SendDataShares(share));
-  }, [share]);
+  }, [share, dispatch]);
 
   useEffect(() => {
     if (forUpvote) {
@@ -69,7 +69,7 @@ const SendFetchHook = () => {
     }
 
     dispatch(SendDataUpvotes(upvote));
-  }, [upvote]);
+  }, [upvote, dispatch]);
 
   return null;
 };

@@ -43,7 +43,7 @@ export const FetchDataShares = () => {
 export const SendDataShares = (newData) => {
   return () => {
     const sendApiData = async () => {
-      const response = await fetch(
+      await fetch(
         "https://sm-share-349cf-default-rtdb.firebaseio.com/share.json",
         {
           method: "PUT",

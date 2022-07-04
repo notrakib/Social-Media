@@ -43,16 +43,13 @@ export const FetchDataUpvotes = () => {
 export const SendDataUpvotes = (newData) => {
   return () => {
     const sendApiData = async () => {
-      const response = await fetch(
-        "https://sm-upvote-default-rtdb.firebaseio.com/upvote.json",
-        {
-          method: "PUT",
-          body: JSON.stringify(newData),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      await fetch("https://sm-upvote-default-rtdb.firebaseio.com/upvote.json", {
+        method: "PUT",
+        body: JSON.stringify(newData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
     };
 
     sendApiData();

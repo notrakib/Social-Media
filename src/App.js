@@ -9,7 +9,7 @@ import SignIn from "./components/Account/SignIn";
 import Signup from "./components/Account/Signup";
 import Welcome from "./components/Layout/Welcome";
 import { useSelector } from "react-redux";
-import Post_Comments from "./components/comment/Post_Comments";
+import PostComments from "./components/comment/PostComments";
 import SendFetchHook from "./components/Hook/SendFetchHook";
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
               element={<Navigate to={"/FrontPage"} />}
             ></Route>
             <Route element={<Profile />} path="/Profile" />
-            <Route element={<Post_Comments />} path="/:postId" />
+            <Route element={<PostComments />} path="/:postId" />
           </Fragment>
         )}
         {!signin.signin && (

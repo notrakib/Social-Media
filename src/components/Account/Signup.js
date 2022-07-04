@@ -36,7 +36,7 @@ const Signup = () => {
         }
       );
       if (response.ok) {
-        const data = await response.json();
+        await response.json();
 
         const profile = {
           userId: Math.random().toString(),

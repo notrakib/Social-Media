@@ -42,12 +42,12 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
-              to="*"
+              to="/Timeline"
               className={(navdata) =>
                 navdata.isActive ? classes.isActive : ""
               }
             >
-              Messages
+              Timeline
             </NavLink>
           </li>
         </Fragment>
