@@ -1,37 +1,27 @@
-import { Fragment, useRef } from "react";
+import { Fragment } from "react";
 import ReactDOM from "react-dom";
 import Card from "../Layout/Card";
-import styles from "./InputModal.module.css";
+import styles from "./ErrorModal.module.css";
 
 const Underlay = (props) => {
   return <div className={styles.backdrop} onClick={props.onClick}></div>;
 };
 
 const Overlay = (props) => {
-  const textref = useRef();
-
-  const SubmitHandler = () => {
-    props.onClick(textref.current.value);
-  };
-
   return (
     <div className={styles.modal}>
       <Card>
         <div>
-          <header>Write New Post</header>
-          <textarea
-            type="text"
-            ref={textref}
-            defaultValue={props.holder}
-          ></textarea>
-          <button onClick={SubmitHandler}>Done</button>
+          <header>An Error Occured</header>
+          <p>{props.errorMessage}</p>
+          <button onClick={props.onClick}>Understood</button>
         </div>
       </Card>
     </div>
   );
 };
 
-const InputModal = (props) => {
+const ErrorModal = (props) => {
   return (
     <Fragment>
       {ReactDOM.createPortal(
@@ -39,11 +29,14 @@ const InputModal = (props) => {
         document.getElementById("underlay_root")
       )}
       {ReactDOM.createPortal(
-        <Overlay holder={props.holder} onClick={props.onClick}></Overlay>,
+        <Overlay
+          errorMessage={props.errorMessage}
+          onClick={props.onClick}
+        ></Overlay>,
         document.getElementById("overlay_root")
       )}
     </Fragment>
   );
 };
 
-export default InputModal;
+export default ErrorModal;

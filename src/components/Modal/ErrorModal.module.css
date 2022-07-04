@@ -12,7 +12,7 @@
   position: fixed;
   display: flex;
   justify-content: center;
-  top: 10vh;
+  top: 20vh;
   width: 100%;
   align-self: center;
   z-index: 100;
@@ -21,19 +21,20 @@
 .modal div {
   display: flex;
   flex-direction: column;
-  height: 400px;
+  height: 150px;
+  width: 500px;
 }
 
 .modal header {
-  color: aliceblue;
+  color: rgb(4, 9, 248);
   font-size: 20pt;
   font-weight: bolder;
   text-align: center;
 }
 
-.modal textarea {
+.modal p {
   align-self: start;
-  width: 94%;
+  color: rgb(245, 229, 8);
   margin: 20px;
   flex-grow: 0.7;
   height: 100px;
@@ -46,9 +47,9 @@
   margin-top: 10px;
   padding: 7px;
   width: 90px;
-  background-color: aliceblue;
-  color: rgb(72, 61, 139);
+  background-color: rgb(209, 5, 39);
+  color: rgb(243, 242, 247);
   font-weight: bolder;
   border-radius: 10px;
-  border-color: rgb(122, 5, 255);
+  border-color: rgb(246, 244, 248);
 }

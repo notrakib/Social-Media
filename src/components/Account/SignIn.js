@@ -1,11 +1,13 @@
-import { useRef } from "react";
+import { Fragment, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signinAction } from "../Store/Signin-slice";
 import Card from "../Layout/Card";
 import classes from "./SignIn.module.css";
 import { useDispatch, useSelector } from "react-redux";
+import ErrorModal from "../Modal/ErrorModal";
 
 const SignIn = () => {
+  const [errormsg, setmsg] = useState("");
   const emailRef = useRef();
   const passRef = useRef();
 
@@ -47,7 +49,6 @@ const SignIn = () => {
           name: signedProfile.name,
         };
 
-        if (signedProfile === undefined) return;
         dispatch(signinAction.login(profile));
 
         navigate("/NewsFeed");
@@ -56,27 +57,37 @@ const SignIn = () => {
         throw new Error(data.error.message);
       }
     } catch (error) {
-      console.log(error.message);
+      setmsg(error.message);
     }
   };
 
+  const ModalHandler = (event) => {
+    event.preventDefault();
+    setmsg("");
+  };
+
   return (
-    <Card>
-      <form className={classes.signin}>
-        <h1>
-          Sign in \ <Link to="/Signup">Create An Account</Link>
-        </h1>
-        <div>
-          <h3>User ID</h3>
-          <input ref={emailRef} id={classes.user} type="email"></input>
-        </div>
-        <div>
-          <h3>Password</h3>
-          <input ref={passRef} type="password"></input>
-        </div>
-        <button onClick={submitHandler}>Sign in</button>
-      </form>
-    </Card>
+    <Fragment>
+      <Card>
+        <form className={classes.signin}>
+          <h1>
+            Sign in \ <Link to="/Signup">Create An Account</Link>
+          </h1>
+          <div>
+            <h3>User ID</h3>
+            <input ref={emailRef} id={classes.user} type="email"></input>
+          </div>
+          <div>
+            <h3>Password</h3>
+            <input ref={passRef} type="password"></input>
+          </div>
+          <button onClick={submitHandler}>Sign in</button>
+        </form>
+      </Card>
+      {errormsg !== "" && (
+        <ErrorModal errorMessage={errormsg} onClick={ModalHandler}></ErrorModal>
+      )}
+    </Fragment>
   );
 };
 
