@@ -20,6 +20,7 @@ const FrontPage = () => {
       postId: Math.random().toString(),
       post: postRef.current.value,
       date: date,
+      share: null,
     };
 
     dispatch(postAction.createPost(newPost));
