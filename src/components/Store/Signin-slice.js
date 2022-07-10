@@ -11,6 +11,7 @@ if (localStorage.getItem("Signin")) {
     name: localProfile.name,
     idToken: localProfile.idToken,
     expiresIn: localProfile.expiresIn,
+    loginTime: localProfile.loginTime,
   };
 } else {
   initialSignState = {
@@ -20,6 +21,7 @@ if (localStorage.getItem("Signin")) {
     name: "",
     idToken: "",
     expiresIn: null,
+    loginTime: 0,
   };
 }
 

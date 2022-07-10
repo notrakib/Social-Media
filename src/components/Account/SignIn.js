@@ -47,11 +47,19 @@ const SignIn = () => {
           expiresIn: data.expiresIn,
           emailId: emailRef.current.value,
           name: signedProfile.name,
+          loginTime: String(new Date()),
         };
 
         dispatch(signinAction.login(profile));
 
         navigate("/NewsFeed");
+
+        const remainingTime =
+          +new Date(profile.loginTime) + 900000 - new Date();
+
+        const timer = setTimeout(() => {
+          dispatch(signinAction.logout());
+        }, remainingTime);
       } else {
         const data = await response.json();
         throw new Error(data.error.message);
