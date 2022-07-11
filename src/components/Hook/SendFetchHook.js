@@ -5,6 +5,7 @@ import { FetchDataPosts, SendDataPosts } from "../Store/NewPost-slice";
 import { FetchDataComments, SendDataComments } from "../Store/Comment-slice";
 import { FetchDataShares, SendDataShares } from "../Store/Share-slice";
 import { FetchDataUpvotes, SendDataUpvotes } from "../Store/Upvote-slice";
+import { signinAction } from "../Store/Signin-slice";
 
 let forProfile = true;
 let forPost = true;
@@ -18,8 +19,17 @@ const SendFetchHook = () => {
   const comment = useSelector((state) => state.comment.commentArray);
   const share = useSelector((state) => state.share.shareArray);
   const upvote = useSelector((state) => state.upvote.upvoteArray);
+  const signIn = useSelector((state) => state.signin.loginTime);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const remainingTime = +new Date(signIn) + 3600000 - new Date();
+
+    if (remainingTime < 0) {
+      dispatch(signinAction.logout());
+    }
+  }, [signIn, dispatch]);
 
   useEffect(() => {
     if (forProfile) {

@@ -1,0 +1,33 @@
+h2 {
+  color: rgb(245, 248, 250);
+}
+
+.Addfrend {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2%;
+  border: 2px;
+  border-style: solid;
+  border-color: rgb(6, 59, 1);
+  border-radius: 15px;
+  background-color: rgb(173, 207, 183);
+}
+
+.Addfrend h3 {
+  margin-left: 15px;
+}
+
+.Addfrend button {
+  align-self: center;
+  margin-right: 15px;
+  padding: 7px;
+  width: 90px;
+  height: 30px;
+  text-align: center;
+  background-color: rgb(3, 136, 63);
+  color: rgb(236, 235, 240);
+  font-weight: bolder;
+  border-radius: 10px;
+  border-color: rgb(122, 5, 255);
+}

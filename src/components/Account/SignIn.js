@@ -55,9 +55,9 @@ const SignIn = () => {
         navigate("/NewsFeed");
 
         const remainingTime =
-          +new Date(profile.loginTime) + 900000 - new Date();
+          +new Date(profile.loginTime) + 3600000 - new Date();
 
-        const timer = setTimeout(() => {
+        setTimeout(() => {
           dispatch(signinAction.logout());
         }, remainingTime);
       } else {

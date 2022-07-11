@@ -5,6 +5,7 @@ import commentReducer from "./Comment-slice";
 import signinReducer from "./Signin-slice";
 import upvoteReducer from "./Upvote-slice";
 import shareReducer from "./Share-slice";
+import friendReducer from "./Friends-slice";
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     comment: commentReducer,
     upvote: upvoteReducer,
     share: shareReducer,
+    friends: friendReducer,
   },
 });
 

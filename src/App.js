@@ -11,6 +11,8 @@ import Welcome from "./components/Layout/Welcome";
 import { useSelector } from "react-redux";
 import PostComments from "./components/comment/PostComments";
 import SendFetchHook from "./components/Hook/SendFetchHook";
+import Timeline from "./components/Account/Timeline";
+import AddFriend from "./components/Account/AddFriend";
 
 function App() {
   SendFetchHook();
@@ -37,6 +39,8 @@ function App() {
             ></Route>
             <Route element={<Profile />} path="/Profile" />
             <Route element={<PostComments />} path="/:postId" />
+            <Route element={<Timeline />} path="/Timeline" />
+            <Route element={<AddFriend />} path="/AddFriend" />
           </Fragment>
         )}
         {!signin.signin && (
