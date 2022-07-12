@@ -32,7 +32,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
-              to="/AddFriend"
+              to="/Friends"
               className={(navdata) =>
                 navdata.isActive ? classes.isActive : ""
               }

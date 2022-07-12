@@ -6,12 +6,14 @@ import { FetchDataComments, SendDataComments } from "../Store/Comment-slice";
 import { FetchDataShares, SendDataShares } from "../Store/Share-slice";
 import { FetchDataUpvotes, SendDataUpvotes } from "../Store/Upvote-slice";
 import { signinAction } from "../Store/Signin-slice";
+import { FetchDataFriends, SendDataFriends } from "../Store/Friends-slice";
 
 let forProfile = true;
 let forPost = true;
 let forComment = true;
 let forShare = true;
 let forUpvote = true;
+let forFriends = true;
 
 const SendFetchHook = () => {
   const profile = useSelector((state) => state.profile.profileArray);
@@ -20,6 +22,7 @@ const SendFetchHook = () => {
   const share = useSelector((state) => state.share.shareArray);
   const upvote = useSelector((state) => state.upvote.upvoteArray);
   const signIn = useSelector((state) => state.signin.loginTime);
+  const friends = useSelector((state) => state.friends.friendArray);
 
   const dispatch = useDispatch();
 
@@ -80,6 +83,16 @@ const SendFetchHook = () => {
 
     dispatch(SendDataUpvotes(upvote));
   }, [upvote, dispatch]);
+
+  useEffect(() => {
+    if (forFriends) {
+      dispatch(FetchDataFriends());
+      forFriends = false;
+      return;
+    }
+
+    dispatch(SendDataFriends(friends));
+  }, [friends, dispatch]);
 
   return null;
 };

@@ -12,7 +12,7 @@ const Overlay = (props) => {
     <div className={styles.modal}>
       <Card>
         <div>
-          <header>An Error Occured</header>
+          <header>Attention!</header>
           <p>{props.errorMessage}</p>
           <button onClick={props.onClick}>Understood</button>
         </div>
