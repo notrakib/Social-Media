@@ -10,7 +10,7 @@ const AddFriend = (props) => {
     <Fragment>
       <div key={props.each.userId} className={classes.Addfrend}>
         <h3>{props.each.name}</h3>
-        <button onClick={SubmitHandler}>Add Friend</button>
+        <button onClick={SubmitHandler}>Follow</button>
       </div>
     </Fragment>
   );

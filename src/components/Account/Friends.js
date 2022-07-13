@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../Layout/Card";
 import AddFriend from "./AddFriend";
@@ -33,23 +32,18 @@ const Friends = () => {
   };
 
   return (
-    <Fragment>
-      <Card>
-        <h2>Pending Requests</h2>
-      </Card>
-      <Card>
-        <h2>Send Requests</h2>
-        {availableFriends.map((each) => {
-          return (
-            <AddFriend
-              key={each.userId}
-              onConfirm={AddFriendHandler}
-              each={each}
-            ></AddFriend>
-          );
-        })}
-      </Card>
-    </Fragment>
+    <Card>
+      <h2>Send Requests</h2>
+      {availableFriends.map((each) => {
+        return (
+          <AddFriend
+            key={each.userId}
+            onConfirm={AddFriendHandler}
+            each={each}
+          ></AddFriend>
+        );
+      })}
+    </Card>
   );
 };
 
