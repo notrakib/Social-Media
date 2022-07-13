@@ -1,6 +1,5 @@
 import classes from "./RecentPost.module.css";
 import React, { Fragment, useState } from "react";
-
 import Card from "../Layout/Card";
 import Posts from "./Posts";
 import { useSelector } from "react-redux";

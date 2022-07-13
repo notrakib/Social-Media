@@ -1,10 +1,8 @@
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../Layout/Card";
 import AddFriend from "./AddFriend";
 import { friendsAction } from "../Store/Friends-slice";
-
-let forFriendList = true;
 
 const Friends = () => {
   let profile = useSelector((state) => state.profile.profileArray);
@@ -12,17 +10,6 @@ const Friends = () => {
   const userId = useSelector((state) => state.signin.userId);
   const dispatch = useDispatch();
   const availableFriends = [];
-
-  useEffect(() => {
-    if (forFriendList) {
-      forFriendList = false;
-      return;
-    } else {
-      if (friendlist.find((user) => user.userId === userId) === undefined) {
-        dispatch(friendsAction.addFriends({ userId: userId, friends: [""] }));
-      }
-    }
-  }, [friendlist]);
 
   profile = profile.filter((each) => each.userId !== userId);
 
