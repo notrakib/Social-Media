@@ -6,6 +6,7 @@ import Card from "../Layout/Card";
 import classes from "./Signup.module.css";
 
 import { profileAction } from "../Store/NewProfile-slice";
+import { friendsAction } from "../Store/Friends-slice";
 
 const Signup = () => {
   const nameRef = useRef();
@@ -45,7 +46,9 @@ const Signup = () => {
         };
 
         dispatch(profileAction.createProfile(profile));
-
+        dispatch(
+          friendsAction.addFriends({ userId: profile.userId, friends: [null] })
+        );
         navigate("*");
       } else {
         const data = await response.json();

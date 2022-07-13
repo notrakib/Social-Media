@@ -2,10 +2,6 @@ import { Fragment } from "react";
 import classes from "../Account/AddFriend.module.css";
 
 const AddFriend = (props) => {
-  const AddFriendHandler = () => {
-    console.log();
-  };
-
   const SubmitHandler = () => {
     props.onConfirm(props.each.userId);
   };

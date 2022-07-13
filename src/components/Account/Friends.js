@@ -1,8 +1,10 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../Layout/Card";
 import AddFriend from "./AddFriend";
 import { friendsAction } from "../Store/Friends-slice";
+
+let forFriendList = true;
 
 const Friends = () => {
   let profile = useSelector((state) => state.profile.profileArray);
@@ -11,22 +13,33 @@ const Friends = () => {
   const dispatch = useDispatch();
   const availableFriends = [];
 
+  useEffect(() => {
+    if (forFriendList) {
+      forFriendList = false;
+      return;
+    } else {
+      if (friendlist.find((user) => user.userId === userId) === undefined) {
+        dispatch(friendsAction.addFriends({ userId: userId, friends: [""] }));
+      }
+    }
+  }, [friendlist]);
+
   profile = profile.filter((each) => each.userId !== userId);
 
-  if (friendlist.find((user) => user.userId === userId) === undefined) {
-    dispatch(friendsAction.addFriends({ userId: userId, friends: [null] }));
+  try {
+    const targettedUser = friendlist.find((user) => user.userId === userId);
+
+    profile.map((each) => {
+      if (
+        targettedUser.friends.find((friend) => friend === each.userId) ===
+        undefined
+      ) {
+        availableFriends.push({ userId: each.userId, name: each.name });
+      }
+    });
+  } catch (error) {
+    console.log(error);
   }
-
-  const targettedUser = friendlist.find((user) => user.userId === userId);
-
-  profile.map((each) => {
-    if (
-      targettedUser.friends.find((friend) => friend === each.userId) ===
-      undefined
-    ) {
-      availableFriends.push({ userId: each.userId, name: each.name });
-    }
-  });
 
   const AddFriendHandler = (userid) => {
     dispatch(friendsAction.updateFriends({ userId: userId, friends: userid }));

@@ -17,13 +17,15 @@ const RecentPost = () => {
   try {
     const targettedUser = friendlist.find((user) => user.userId === userId);
 
-    targettedUser.friends.map((friend) => {
-      allPosts.map((post) => {
-        if (post.userId === friend) {
-          newsfeed.push(post);
-        }
+    if (targettedUser !== undefined || targettedUser.friends !== undefined) {
+      targettedUser.friends.map((friend) => {
+        allPosts.map((post) => {
+          if (post.userId === friend) {
+            newsfeed.push(post);
+          }
+        });
       });
-    });
+    }
   } catch (error) {
     console.log(error.message);
   }

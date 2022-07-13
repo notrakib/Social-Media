@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialFriends = { friendArray: [] };
+const initialFriends = { friendArray: [{ userId: "", friends: [""] }] };
 
 const friendsSlice = createSlice({
   name: "friends",
