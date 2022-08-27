@@ -58,7 +58,7 @@ const Navbar = () => {
             to="*"
             className={(navdata) => (navdata.isActive ? classes.isActive : "")}
           >
-            Welcome to Moti Media
+            Social Media
           </NavLink>
         </li>
       )}
