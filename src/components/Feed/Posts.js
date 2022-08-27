@@ -10,7 +10,7 @@ import { shareAction } from "../Store/Share-slice";
 
 const Posts = (props) => {
   const navigate = useNavigate();
-  const numberofComments = useSelector((state) => state.comment.commentArray);
+  const comment = useSelector((state) => state.comment.commentArray);
   const upvote = useSelector((state) => state.upvote.upvoteArray);
   const share = useSelector((state) => state.share.shareArray);
   const signedprofile = useSelector((state) => state.signin);
@@ -24,6 +24,10 @@ const Posts = (props) => {
   );
 
   const numberofShares = share.filter(
+    (post) => post.postId === props.item.postId
+  );
+
+  const numberofComments = comment.filter(
     (post) => post.postId === props.item.postId
   );
 

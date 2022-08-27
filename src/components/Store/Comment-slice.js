@@ -19,7 +19,7 @@ export const FetchDataComments = () => {
   return (dispatch) => {
     const fetchApiData = async () => {
       const response = await fetch(
-        "https://sm-comment-default-rtdb.firebaseio.com/comment.json"
+        "https://sm-project-d5503-default-rtdb.firebaseio.com/comment.json"
       );
       const data = await response.json();
       dispatch(commentAction.replaceApiData(data || []));
@@ -33,7 +33,7 @@ export const SendDataComments = (newData) => {
   return () => {
     const sendApiData = async () => {
       await fetch(
-        "https://sm-comment-default-rtdb.firebaseio.com/comment.json",
+        "https://sm-project-d5503-default-rtdb.firebaseio.com/comment.json",
         {
           method: "PUT",
           body: JSON.stringify(newData),
