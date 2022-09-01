@@ -3,6 +3,11 @@
   flex-direction: column;
 }
 
+.posts div {
+  display: flex;
+  justify-content: space-between;
+}
+
 .posts h1 {
   margin: 0px;
 }

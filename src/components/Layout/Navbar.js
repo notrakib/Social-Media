@@ -40,16 +40,6 @@ const Navbar = () => {
               Friends
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/Timeline"
-              className={(navdata) =>
-                navdata.isActive ? classes.isActive : ""
-              }
-            >
-              Timeline
-            </NavLink>
-          </li>
         </Fragment>
       )}
       {!signin.signin && (
@@ -67,7 +57,7 @@ const Navbar = () => {
           <Fragment>
             <li>
               <NavLink
-                to="/Profile"
+                to="/Timeline"
                 className={(navdata) =>
                   navdata.isActive ? classes.isActive : ""
                 }

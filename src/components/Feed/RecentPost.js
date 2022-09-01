@@ -19,7 +19,9 @@ const RecentPost = () => {
           if (post.userId === friend) {
             newsfeed.push(post);
           }
+          return null;
         });
+        return null;
       });
     }
   } catch (error) {

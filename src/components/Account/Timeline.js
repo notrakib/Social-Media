@@ -16,7 +16,11 @@ const Timeline = () => {
     return (
       <Card key={post.postId}>
         <div className={classes.posts}>
-          <h1>{post.name}</h1>
+          <div>
+            <h1>{post.name}</h1>
+            <button>Delete</button>
+          </div>
+
           <DaysAgo postdate={post.date}></DaysAgo>
           <p>{post.post}</p>
           <h4 className={classes.postDate}>
