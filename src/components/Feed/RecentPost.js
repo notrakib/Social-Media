@@ -8,12 +8,21 @@ const RecentPost = () => {
   const userId = useSelector((state) => state.signin.userId);
   const friendlist = useSelector((state) => state.friends.friendArray);
 
+  const userPosts = allPosts.filter((post) => post.userId === userId);
+
   const newsfeed = [];
 
   try {
     const targettedUser = friendlist.find((user) => user.userId === userId);
 
     if (targettedUser !== undefined || targettedUser.friends !== undefined) {
+      userPosts.map((post) => {
+        if (post.userId === userId) {
+          newsfeed.push(post);
+        }
+        return null;
+      });
+
       targettedUser.friends.map((friend) => {
         allPosts.map((post) => {
           if (post.userId === friend) {
@@ -24,9 +33,7 @@ const RecentPost = () => {
         return null;
       });
     }
-  } catch (error) {
-    console.log(error.message);
-  }
+  } catch (error) {}
 
   return (
     <Card>

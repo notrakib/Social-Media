@@ -1,35 +1,41 @@
-import classes from "../Feed/Posts.module.css";
-import PostDate from "../Date/PostDate";
-import DaysAgo from "../Date/DaysAgo";
+import classes from "./Timeline.module.css";
+import Posts from "./Posts";
 import { useSelector } from "react-redux";
 import Card from "../Layout/Card";
 
-const Timeline = () => {
-  const signedprofile = useSelector((state) => state.signin);
-  const post = useSelector((state) => state.post.newPostArray);
+const RecentPost = () => {
+  const allPosts = useSelector((state) => state.post.newPostArray);
+  const userId = useSelector((state) => state.signin.userId);
+  const friendlist = useSelector((state) => state.friends.friendArray);
 
-  const allPosts = post.filter((post) => post.userId === signedprofile.userId);
+  const userPosts = allPosts.filter((post) => post.userId === userId);
 
-  if (allPosts === undefined) return;
+  const newsfeed = [];
 
-  return allPosts.map((post) => {
-    return (
-      <Card key={post.postId}>
-        <div className={classes.posts}>
-          <div>
-            <h1>{post.name}</h1>
-            <button>Delete</button>
-          </div>
+  try {
+    const targettedUser = friendlist.find((user) => user.userId === userId);
 
-          <DaysAgo postdate={post.date}></DaysAgo>
-          <p>{post.post}</p>
-          <h4 className={classes.postDate}>
-            <PostDate postdate={post.date}></PostDate>
-          </h4>
-        </div>
-      </Card>
-    );
-  });
+    if (targettedUser !== undefined || targettedUser.friends !== undefined) {
+      userPosts.map((post) => {
+        if (post.userId === userId) {
+          newsfeed.push(post);
+        }
+        return null;
+      });
+    }
+  } catch (error) {
+    console.log(error.message);
+  }
+
+  return (
+    <Card>
+      <div className={classes.recentposts}>
+        {newsfeed.map((item) => (
+          <Posts key={item.postId} item={item}></Posts>
+        ))}
+      </div>
+    </Card>
+  );
 };
 
-export default Timeline;
+export default RecentPost;

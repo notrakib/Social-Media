@@ -11,6 +11,12 @@ const postSlice = createSlice({
     createPost(state, action) {
       state.newPostArray.push(action.payload);
     },
+    removePost(state, action) {
+      const index = state.newPostArray.findIndex(
+        (post) => post.postId === action.payload
+      );
+      state.newPostArray.splice(index, 1);
+    },
     replaceApiData(state, action) {
       state.newPostArray = action.payload;
     },
